@@ -87,7 +87,7 @@ if streamlit.button('Add a fruit to the list'):
   streamlit.text(back_from_function)
 
 #ouput selected or submitted value
-#streamlit.text("Thanks for adding: " + add_my_fruit)
+streamlit.text("Thanks for adding: " + add_my_fruit)
 
 #do more stuff with snowflake 
 
