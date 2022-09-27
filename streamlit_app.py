@@ -64,21 +64,17 @@ if streamlit.button('Get Fruit Load List'):
 #dont run anything pas here whilst we troubleshoot
 streamlit.stop()
 
-
-
 streamlit.header("The fruit load list contains:")
-
 
 #my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
 #streamlit.text("Hello from Snowflake:")
-
 
 #lets create a fruit to add section 
 #streamlit.text("What fruit would you like to add?")
 
 #create custom function
 def insert_row_snowflake(new_fruit):
-  with my_cnx.cursor() as my my_cur:
+  with my_cnx.cursor() as my_cur:
    my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('from streamlit')")
   return "Thanks for adding " + new fruit
 
