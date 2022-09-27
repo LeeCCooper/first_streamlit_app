@@ -75,11 +75,25 @@ streamlit.header("The fruit load list contains:")
 
 #lets create a fruit to add section 
 #streamlit.text("What fruit would you like to add?")
+
+#create custom function
+def insert_row_snowflake(new_fruit):
+  with my_cnx.cursor() as my my_cur:
+   my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('from streamlit')")
+  return "Thanks for adding " + new fruit
+
+#create the input box 
 add_my_fruit = streamlit.text_input("What fruit would you like to add?", "Jackfruit")
+
+if streamlit.button('Add a fruit to the list'):
+  my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+  back_from_function = insert_row_snowflake(add_my_fruit)
+  streamlit.text(back_from_function)
+
 #ouput selected or submitted value
-streamlit.text("Thanks for adding: " + add_my_fruit)
+#streamlit.text("Thanks for adding: " + add_my_fruit)
 
 #do more stuff with snowflake 
-my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values ('from streamlit')")
+
 
 
